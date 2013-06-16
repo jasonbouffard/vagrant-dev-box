@@ -12,3 +12,16 @@ bash "apt-get-dist-upgrade" do
   DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
   EOH
 end
+
+apt_package "make" do
+  action :install
+end
+
+execute "rebuild-vbox-guest-additions" do
+  code = <<-EOH
+  lsmod | grep -c vboxsf
+  EOH
+  user "root"
+  command "/etc/init.d/vboxadd setup"
+  not_if code
+end
