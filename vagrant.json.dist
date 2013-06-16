@@ -1,0 +1,5 @@
+{
+    "name": "[name of project]",
+    "local_dir": "[local dir]",
+    "web_path": "[appended to project_dir]"
+}

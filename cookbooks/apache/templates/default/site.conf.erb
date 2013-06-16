@@ -1,0 +1,11 @@
+<VirtualHost *:80>
+    ServerName <%= node['name'] %>.dev
+    DocumentRoot <%= node['project_dir'] %><%= node['web_path'] %>
+    DirectoryIndex app.php
+    ErrorLog /var/log/apache2/<%= node['name'] %>-error.log
+    CustomLog /var/log/apache2/<%= node['name'] %>-access.log combined
+    <Directory "<%= node['project_dir'] %><%= node['web_path'] %>">
+        AllowOverride All
+        Allow from All
+    </Directory>
+</VirtualHost>
