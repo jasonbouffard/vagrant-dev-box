@@ -2,7 +2,7 @@ apt_package "postgresql-9.1" do
   action :install
 end
 
-bash "created-db-vagrant-user" do
+bash "created-pg-user-vagrant" do
   user "postgres"
   code <<-EOH
   createuser --superuser vagrant
