@@ -1,11 +1,11 @@
-bash "apt-get-update" do
+bash "apt-get update" do
   user "root"
   code <<-EOH
   apt-get -y update
   EOH
 end
 
-bash "apt-get-dist-upgrade" do
+bash "apt-get dist-upgrade" do
   user "root"
   code <<-EOH
   # https://github.com/mitchellh/vagrant/issues/289#issuecomment-12408200
@@ -17,7 +17,7 @@ apt_package "make" do
   action :install
 end
 
-execute "rebuild-vbox-guest-additions" do
+execute "rebuild vbox guest additions" do
   code = <<-EOH
   lsmod | grep -c vboxsf
   EOH
