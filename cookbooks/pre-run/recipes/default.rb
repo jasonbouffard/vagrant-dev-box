@@ -25,3 +25,9 @@ execute "rebuild-vbox-guest-additions" do
   command "/etc/init.d/vboxadd setup"
   not_if code
 end
+
+directory node['project_dir'] do
+  owner 'vagrant'
+  group 'vagrant'
+  action :create
+end
